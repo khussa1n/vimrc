@@ -42,7 +42,7 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-Plugin 'chriskempson/base16-vim'
+
 
 syntax on
 set number
@@ -50,8 +50,8 @@ set belloff=all
 set backspace=indent,eol,start
 inore jj <Esc>
 set guifont=Consolas:h16cRUSSIAN
-colorscheme base16-default-dark
-set background=dark
+syntax enable
+colorscheme delek
 set clipboard=unnamed
 set autoindent
 
@@ -71,4 +71,4 @@ set wrap
 set linebreak
 
 set ruler
-
+autocmd filetype cpp nnoremap <F5> :w <bar> !g++ -std=c++14 -O2 -Wall % -o %:r && %:r.exe <CR>
