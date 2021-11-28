@@ -10,6 +10,11 @@ syntax enable
 "colorscheme delek
 set clipboard=unnamed
 
+inoremap { {}<Left>
+inoremap {<CR> {<CR>}<Esc>O
+inoremap {{ {
+inoremap {} {}
+
 set noundofile
 set nobackup
 set noswapfile
