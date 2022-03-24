@@ -33,4 +33,18 @@ set wrap
 set linebreak
 
 set ruler
-autocmd filetype cpp nnoremap <F5> :w <bar> !g++ -std=c++14 -O2 -Wall % -o %:r && %:r.exe <CR>
+"autocmd filetype cpp nnoremap <F5> :w <bar> !g++ -std=c++14 -O2 -Wall % -o %:r && %:r.exe <CR>
+
+map <F5> :call CompileRun()<CR>
+func! CompileRun()
+exec "w"
+if &filetype == 'cpp'
+exec "!g++ -std=c++14 -O2 -Wall % -o %:r && %:r.exe"
+elseif &filetype == 'java'
+exec "!javac % && java %" 
+elseif &filetype == 'python'
+exec "!python %"
+elseif &filetype == 'html'
+exec "!google % &"
+endif
+endfunc
