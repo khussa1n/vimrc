@@ -46,5 +46,7 @@ elseif &filetype == 'py'
 exec "!python %"
 elseif &filetype == 'html'
 exec "!google % &"
+elseif &filetype == 'js'
+exec "!node %"
 endif
 endfunc
