@@ -42,7 +42,7 @@ if &filetype == 'cpp'
 exec "!g++ -std=c++14 -O2 -Wall % -o %:r && %:r.exe"
 elseif &filetype == 'java'
 exec "!javac % && java %" 
-elseif &filetype == 'python'
+elseif &filetype == 'py'
 exec "!python %"
 elseif &filetype == 'html'
 exec "!google % &"
