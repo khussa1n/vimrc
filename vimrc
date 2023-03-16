@@ -15,6 +15,10 @@ inoremap {<CR> {<CR>}<Esc>O
 inoremap {{ {
 inoremap {} {}
 
+inoremap ( ()<Left>
+inoremap (( (
+inoremap () ()
+
 set noundofile
 set nobackup
 set noswapfile
