@@ -8,7 +8,7 @@ inore jj <Esc>
 set guifont=Consolas:h16cRUSSIAN
 syntax enable
 "colorscheme delek
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 inoremap { {}<Left>
 inoremap {<CR> {<CR>}<Esc>O
