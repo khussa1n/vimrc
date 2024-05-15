@@ -41,16 +41,27 @@ set ruler
 
 map <F5> :call CompileRun()<CR>
 func! CompileRun()
-exec "w"
-if &filetype == 'cpp'
-exec "!g++ -std=c++14 -O2 -Wall % -o %:r && %:r.exe"
-elseif &filetype == 'java'
-exec "!javac % && java %" 
-elseif &filetype == 'py'
-exec "!python %"
-elseif &filetype == 'html'
-exec "!google % &"
-elseif &filetype == 'js'
-exec "!node %"
-endif
+    write
+    if &filetype == 'cpp'
+        if has('win32')
+            exec "!g++ -std=c++14 -O2 -Wall % -o %:r && %:r.exe"
+        else
+            exec "!g++ -std=c++14 -O2 -Wall % -o %:r && ./%:r"
+        endif
+    elseif &filetype == 'java'
+        exec "!javac % && java %:r"
+    elseif &filetype == 'py'
+        exec "!python %"
+    elseif &filetype == 'html'
+        if has('win32')
+            exec "!start %"
+        elseif has('mac')
+            exec "!open %"
+        else
+            exec "!xdg-open %"
+        endif
+    elseif &filetype == 'js'
+        exec "!node %"
+    endif
 endfunc
+
